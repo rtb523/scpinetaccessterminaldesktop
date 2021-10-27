@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - uses: AutoModality/action-clean@v1.1.0
-    - run : rm -rf *.*
+    - run : rm -r -- */
     - uses: actions/checkout@v2
     - run: sudo dpkg --add-architecture i386
     - run: wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
