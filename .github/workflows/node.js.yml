@@ -21,6 +21,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: sudo dpkg --add-architecture i386
+    - run: wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+    - run: sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
+    - run: sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
+    - run: sudo apt install --install-recommends winehq-stable
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
