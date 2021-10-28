@@ -35,8 +35,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: npm
     - run: npm install . -include=dev
-    - run: npx electron-packager . --platform=all
+    - run: npx electron-packager . --platform=all -overwrite
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: ./*
+        path: ./*/
