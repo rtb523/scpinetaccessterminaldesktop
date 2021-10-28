@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 16.x]#14.x, 16.x]
+        node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -35,7 +35,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: npm
     - run: npm install . -include=dev
-    - run: npx electron-packager . scpinet -overwrite --all
+    - run: sudo npx electron-packager . scpinet -overwrite --all
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
