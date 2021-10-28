@@ -35,7 +35,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: npm
     - run: npm install . -include=dev
-    - run: npx electron-packager . scpinet --overwrite --platform=all
+    - run: npx electron-packager . scpinet --overwrite --all
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
